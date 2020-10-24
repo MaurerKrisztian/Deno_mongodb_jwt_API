@@ -20,6 +20,17 @@ $ deno run --allow-env --allow-net --unstable --allow-read --allow-write --allow
 * [djwt](https://deno.land/x/djwt)
 * [dotenv](https://deno.land/x/dotenv)
 
+#### Routes
+
+```
+GET      /users
+GET      /users/:id
+POST     /users
+PUT      /users/:id
+DELETE   /users
+
+POST     /login
+```
 
 ### What you can do with this api: 
 * You can secure a route by adding a middleware and pass a role array:
