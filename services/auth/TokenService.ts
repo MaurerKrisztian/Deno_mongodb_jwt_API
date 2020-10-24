@@ -3,7 +3,7 @@ import {makeJwt, setExpiration, Jose, Payload} from "https://deno.land/x/djwt/cr
 
 export class TokenService {
     static ALGORITHM: any = "HS256";
-    static KEY: string = (Deno.env.get('JWT_ACCES_TOKEN_SECRET') || "your-secret")
+    static KEY: string = (Deno.env.get('JWT_ACCESS_TOKEN_SECRET') || "your-secret")
 
     constructor() {
     }

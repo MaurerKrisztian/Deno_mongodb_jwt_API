@@ -16,11 +16,9 @@ export class ControllerService implements ICrudControllerService {
         return ctx.response;
     }
 
-
     async getById(ctx: any) {
         const id = ctx.params.id;
         const result = await this.repositoryService.findById(id)
-
         ctx.response.type = "json";
         ctx.response.body = result;
         return ctx.response;
@@ -30,7 +28,6 @@ export class ControllerService implements ICrudControllerService {
         const body = await ctx.request.body().value;
         const newDoc = await this.repositoryService.insert(body);
         ctx.response.body = newDoc;
-
         return ctx.response;
     }
 
@@ -42,16 +39,14 @@ export class ControllerService implements ICrudControllerService {
         } else {
             ctx.response.body = "not deleted";
         }
-
         return ctx.response;
     }
 
     async update(ctx: any) {
         const id = ctx.params.id;
         const body = await ctx.request.body().value;
-
         const update = await this.repositoryService.update(id, body);
-        ctx.response.body = "user update";
+        ctx.response.body = "update";
         return ctx.response;
     }
 }

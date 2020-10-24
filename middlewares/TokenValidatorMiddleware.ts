@@ -10,19 +10,14 @@ export class TokenValidatorMiddleware {
     validateToken = function (roles: string[]) {
         return async (ctx: any, next: any) => {
             const token = ctx.request.headers.get("token");
-
             const tokenData: any = await TokenService.getTokenData(token);
-            const isValid = tokenData.isValid;
-            if (!isValid) {
+            if (!tokenData.isValid) {
                 ctx.response.body = "access denied.";
                 return ctx.response;
             }
-
             const userId = tokenData.payload.userId;
-
             const userRepo = new UserRepository();
             const user: any = await userRepo.findById(userId);
-
             for (let role of roles) {
                 if (!user.roles.includes(role)) {
                     ctx.response.body = "access denied.";

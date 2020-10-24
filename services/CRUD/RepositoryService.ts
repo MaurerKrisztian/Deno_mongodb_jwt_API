@@ -31,13 +31,12 @@ export class RepositoryService implements IRepositoryService {
     }
 
     async findAll() {
-        const all_users = await this.collection.find({});
-        return all_users;
+        return await this.collection.find({});
+
     }
 
     async findById(id: string) {
-        const user = await this.collection.findOne({_id: {$oid: id}});
-        return user;
+        return await this.collection.findOne({_id: {$oid: id}});
     }
 
 }

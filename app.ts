@@ -4,6 +4,7 @@ import {config} from "https://deno.land/x/dotenv/mod.ts";
 import router from "./router.ts"
 
 config({safe: true})
+const PORT = 3000;
 
 const app = new Application();
 
@@ -15,7 +16,6 @@ app.use(async (ctx, next) => {
     console.log(`${ctx.request.method} ${ctx.request.url} - content-type: ${ct} - token: ${(token) ? "true" : "false"}`);
 });
 
-
 app.use(async (ctx, next) => {
     try {
         await next();
@@ -25,8 +25,7 @@ app.use(async (ctx, next) => {
     }
 });
 
-
 app.use(router.routes());
 app.use(router.allowedMethods());
 
-await app.listen({port: 3000});
+await app.listen({port: PORT});

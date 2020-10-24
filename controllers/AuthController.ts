@@ -15,21 +15,17 @@ export class AuthController {
             ctx.response.body = "emali / password missing.";
             return ctx.response;
         }
-
         const user: any = await this.userRepository.findByEmail(body.email);
-
         if (user === undefined || user === null) {
-            ctx.response.body = "werong email / password";
+            ctx.response.body = "wrong email / password";
             return ctx.response;
         }
-
         if (user.email == body.email && user.password == body.password) {
             const token = await this.tokenService.createToken(AuthController.EXP, {userId: user._id.$oid})
             ctx.response.body = {token: token};
             return ctx.response
         }
-
-        ctx.response.body = "werong email / password"
+        ctx.response.body = "wrong email / password"
         return ctx.response
     }
 }
