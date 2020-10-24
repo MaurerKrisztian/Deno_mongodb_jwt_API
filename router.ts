@@ -1,6 +1,6 @@
 import {Router} from "https://deno.land/x/oak/mod.ts";
 import {UserRepository} from "./db/user/UserRepository.ts";
-import {UserController} from "./controllers/userController.ts";
+import {UserController} from "./controllers/UserController.ts";
 import {ProfileController} from "./controllers/ProfileController.ts";
 import {AuthController} from "./controllers/AuthController.ts";
 import {TokenService} from "./services/auth/TokenService.ts";

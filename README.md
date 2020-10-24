@@ -13,6 +13,12 @@ JWT_ACCESS_TOKEN_SECRET =
 ```
 $ deno run --allow-env --allow-net --unstable --allow-read --allow-write --allow-plugin .\app.ts
 ```
+#### Docker
+```
+$ docker-compose up --build
+or
+$ docker build -t app . && docker run -it --init -p 3000:3000 app
+```
 
 #### Dependencies:
 * [oak](https://deno.land/x/oak)

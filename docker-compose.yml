@@ -1,0 +1,13 @@
+version: "3.7"
+
+services:
+  deno:
+    image: "deno-docker:latest"
+    build: .
+    ports:
+      - "3000:3000"
+    networks:
+      - deno
+
+networks:
+  deno: { }
