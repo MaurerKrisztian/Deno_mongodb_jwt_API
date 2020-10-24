@@ -35,9 +35,9 @@ export class ControllerService implements ICrudControllerService {
         const body = await ctx.request.body().value;
         const deleteCount = await this.repositoryService.delete(body.id);
         if (deleteCount > 0) {
-            ctx.response.body = "deleted";
+            ctx.response.body = {message: "deleted"};
         } else {
-            ctx.response.body = "not deleted";
+            ctx.response.body = {message: "not deleted"};
         }
         return ctx.response;
     }

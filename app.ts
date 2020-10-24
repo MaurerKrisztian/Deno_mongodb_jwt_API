@@ -20,6 +20,7 @@ app.use(async (ctx, next) => {
     try {
         await next();
     } catch (err) {
+        console.log(err)
         ctx.response.status = 500;
         ctx.response.body = {msg: 'Something went wrong'}
     }
